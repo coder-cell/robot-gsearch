@@ -1,111 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.8.5 on win32)" generated="20210419 00:12:09.886" rpa="false">
-<suite id="s1" name="Gsearch" source="D:\Projects\Python\Robot\robot-gsearch\gsearch.robot">
-<test id="s1-t1" name="Google Search">
+<robot generator="Robot 3.2.2 (Python 3.8.5 on win32)" generated="20210419 19:43:06.231" rpa="false">
+<suite id="s1" name="Fbsearch" source="D:\Projects\Python\Robot\robot-gsearch\fbsearch.robot">
+<test id="s1-t1" name="Facebook Login &amp; Search">
 <kw name="Open Browser for Search">
 <kw name="Open Browser" library="SeleniumLibrary">
 <doc>Opens a new browser instance to the optional ``url``.</doc>
 <arguments>
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
+<arg>options=add_argument("--disable-notifications")</arg>
 </arguments>
-<msg timestamp="20210419 00:12:10.218" level="INFO">Opening browser 'Chrome' to base url 'https://www.google.com'.</msg>
-<status status="PASS" starttime="20210419 00:12:10.217" endtime="20210419 00:12:12.844"></status>
+<msg timestamp="20210419 19:43:06.682" level="INFO">Opening browser 'Chrome' to base url 'https://www.facebook.com/'.</msg>
+<status status="PASS" starttime="20210419 19:43:06.681" endtime="20210419 19:43:09.747"></status>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20210419 00:12:12.844" endtime="20210419 00:12:12.984"></status>
+<status status="PASS" starttime="20210419 19:43:09.748" endtime="20210419 19:43:09.884"></status>
 </kw>
 <kw name="Set Browser Implicit Wait" library="SeleniumLibrary">
 <doc>Sets the implicit wait value used by Selenium.</doc>
 <arguments>
 <arg>10</arg>
 </arguments>
-<status status="PASS" starttime="20210419 00:12:12.984" endtime="20210419 00:12:12.987"></status>
+<status status="PASS" starttime="20210419 19:43:09.885" endtime="20210419 19:43:09.889"></status>
 </kw>
 <kw name="Get WebElement" library="SeleniumLibrary">
 <doc>Returns the first WebElement matching the given ``locator``.</doc>
 <arguments>
-<arg>xpath=${SRCH_BTN}</arg>
+<arg>xpath=${LOG_BTN}</arg>
 </arguments>
 <assign>
 <var>${BTN}</var>
 </assign>
-<msg timestamp="20210419 00:12:13.013" level="INFO">${BTN} = &lt;selenium.webdriver.remote.webelement.WebElement (session="627b6584b517a2b12159fc2f80ef13d3", element="ba97d131-5ce9-4bf5-aa37-0a2f4948cd71")&gt;</msg>
-<status status="PASS" starttime="20210419 00:12:12.987" endtime="20210419 00:12:13.013"></status>
+<msg timestamp="20210419 19:43:09.938" level="INFO">${BTN} = &lt;selenium.webdriver.remote.webelement.WebElement (session="f0aa41ae3259c5b1b1aed41ce413db24", element="9a4b4f37-862f-499b-ad18-e690bf1bf8c7")&gt;</msg>
+<status status="PASS" starttime="20210419 19:43:09.890" endtime="20210419 19:43:09.939"></status>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <doc>Waits until the element ``locator`` is visible.</doc>
 <arguments>
 <arg>${BTN}</arg>
 </arguments>
-<status status="PASS" starttime="20210419 00:12:13.013" endtime="20210419 00:12:13.042"></status>
+<status status="PASS" starttime="20210419 19:43:09.939" endtime="20210419 19:43:09.993"></status>
 </kw>
 <kw name="Title Should Be" library="SeleniumLibrary">
 <doc>Verifies that the current page title equals ``title``.</doc>
 <arguments>
-<arg>Google</arg>
+<arg>Facebook – log in or sign up</arg>
 </arguments>
-<msg timestamp="20210419 00:12:13.049" level="INFO">Page title is 'Google'.</msg>
-<status status="PASS" starttime="20210419 00:12:13.042" endtime="20210419 00:12:13.050"></status>
+<msg timestamp="20210419 19:43:10.012" level="INFO">Page title is 'Facebook – log in or sign up'.</msg>
+<status status="PASS" starttime="20210419 19:43:09.994" endtime="20210419 19:43:10.013"></status>
 </kw>
-<status status="PASS" starttime="20210419 00:12:10.217" endtime="20210419 00:12:13.050"></status>
+<status status="PASS" starttime="20210419 19:43:06.681" endtime="20210419 19:43:10.014"></status>
+</kw>
+<kw name="Get Value From User" library="Dialogs">
+<doc>Pauses test execution and asks user to input a value.</doc>
+<arguments>
+<arg>Input email Id</arg>
+<arg>default</arg>
+</arguments>
+<assign>
+<var>${username}</var>
+</assign>
+<msg timestamp="20210419 19:43:35.751" level="INFO">${username} = vmshankar20@gmail.com</msg>
+<status status="PASS" starttime="20210419 19:43:10.016" endtime="20210419 19:43:35.751"></status>
+</kw>
+<kw name="Get Value From User" library="Dialogs">
+<doc>Pauses test execution and asks user to input a value.</doc>
+<arguments>
+<arg>Input password</arg>
+<arg>hidden=yes</arg>
+</arguments>
+<assign>
+<var>${password}</var>
+</assign>
+<msg timestamp="20210419 19:43:42.972" level="INFO">${password} = lordshiva30</msg>
+<status status="PASS" starttime="20210419 19:43:35.752" endtime="20210419 19:43:42.973"></status>
 </kw>
 <kw name="Input Search">
 <arguments>
-<arg>Selenium Automation</arg>
+<arg>${username}</arg>
+<arg>${password}</arg>
 </arguments>
-<kw name="Get WebElement" library="SeleniumLibrary">
-<doc>Returns the first WebElement matching the given ``locator``.</doc>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
-<arg>xpath=${SEARCH_AREA}</arg>
+<arg>xpath=${LOG_EMAIL}</arg>
+<arg>${emailid}</arg>
+<arg>clear=True</arg>
 </arguments>
-<assign>
-<var>${SRCH}</var>
-</assign>
-<msg timestamp="20210419 00:12:13.075" level="INFO">${SRCH} = &lt;selenium.webdriver.remote.webelement.WebElement (session="627b6584b517a2b12159fc2f80ef13d3", element="3aed19cf-1210-4a42-8479-00144502c0f7")&gt;</msg>
-<status status="PASS" starttime="20210419 00:12:13.051" endtime="20210419 00:12:13.075"></status>
+<msg timestamp="20210419 19:43:42.977" level="INFO">Typing text 'vmshankar20@gmail.com' into text field 'xpath=//*[@id="email"]'.</msg>
+<status status="PASS" starttime="20210419 19:43:42.975" endtime="20210419 19:43:43.086"></status>
 </kw>
 <kw name="Input Text" library="SeleniumLibrary">
 <doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
 <arguments>
-<arg>${SRCH}</arg>
-<arg>${input_text}</arg>
+<arg>xpath=${LOG_PASS}</arg>
+<arg>${password}</arg>
 <arg>clear=True</arg>
 </arguments>
-<msg timestamp="20210419 00:12:13.077" level="INFO">Typing text 'Selenium Automation' into text field '&lt;selenium.webdriver.remote.webelement.WebElement (session="627b6584b517a2b12159fc2f80ef13d3", element="3aed19cf-1210-4a42-8479-00144502c0f7")&gt;'.</msg>
-<status status="PASS" starttime="20210419 00:12:13.076" endtime="20210419 00:12:13.257"></status>
+<msg timestamp="20210419 19:43:43.086" level="INFO">Typing text 'lordshiva30' into text field 'xpath=//*[@id="pass"]'.</msg>
+<status status="PASS" starttime="20210419 19:43:43.086" endtime="20210419 19:43:43.177"></status>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <doc>Click the element identified by ``locator``.</doc>
 <arguments>
-<arg>xpath=${SRCH_BTN}</arg>
+<arg>xpath=${LOG_BTN}</arg>
 </arguments>
-<msg timestamp="20210419 00:12:13.258" level="INFO">Clicking element 'xpath=/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]'.</msg>
-<status status="PASS" starttime="20210419 00:12:13.257" endtime="20210419 00:12:15.378"></status>
+<msg timestamp="20210419 19:43:43.177" level="INFO">Clicking element 'xpath=//*[@name="login"]'.</msg>
+<status status="PASS" starttime="20210419 19:43:43.177" endtime="20210419 19:43:43.219"></status>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
-<arg>10</arg>
+<arg>2</arg>
 </arguments>
-<msg timestamp="20210419 00:12:25.384" level="INFO">Slept 10 seconds</msg>
-<status status="PASS" starttime="20210419 00:12:15.378" endtime="20210419 00:12:25.385"></status>
+<msg timestamp="20210419 19:43:45.220" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20210419 19:43:43.219" endtime="20210419 19:43:45.220"></status>
 </kw>
-<status status="PASS" starttime="20210419 00:12:13.050" endtime="20210419 00:12:25.385"></status>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` is visible.</doc>
+<arguments>
+<arg>xpath=${SRCH_BOX}</arg>
+</arguments>
+<status status="PASS" starttime="20210419 19:43:45.222" endtime="20210419 19:43:46.181"></status>
+</kw>
+<kw name="Press Keys" library="SeleniumLibrary">
+<doc>Simulates the user pressing key(s) to an element or on the active browser.</doc>
+<arguments>
+<arg>xpath=${SRCH_BOX}</arg>
+<arg>Automation+RETURN</arg>
+</arguments>
+<msg timestamp="20210419 19:43:46.181" level="INFO">Sending key(s) ('Automation+RETURN',) to xpath=//*[@placeholder="Search Facebook"] element.</msg>
+<msg timestamp="20210419 19:43:46.613" level="INFO">Sending keys Automation</msg>
+<msg timestamp="20210419 19:43:46.614" level="INFO">Pressing special key RETURN down.</msg>
+<msg timestamp="20210419 19:43:46.614" level="INFO">Releasing special key RETURN.</msg>
+<status status="PASS" starttime="20210419 19:43:46.181" endtime="20210419 19:43:47.110"></status>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>5</arg>
+</arguments>
+<msg timestamp="20210419 19:43:52.113" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210419 19:43:47.110" endtime="20210419 19:43:52.113"></status>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20210419 19:43:52.510" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20210419 19:43:52.114" endtime="20210419 19:43:52.510"></status>
+</kw>
+<status status="PASS" starttime="20210419 19:43:42.973" endtime="20210419 19:43:52.510"></status>
 </kw>
 <kw name="Close Current Browser">
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20210419 00:12:25.387" endtime="20210419 00:12:27.573"></status>
+<status status="PASS" starttime="20210419 19:43:52.510" endtime="20210419 19:43:54.698"></status>
 </kw>
-<status status="PASS" starttime="20210419 00:12:25.385" endtime="20210419 00:12:27.574"></status>
+<status status="PASS" starttime="20210419 19:43:52.510" endtime="20210419 19:43:54.698"></status>
 </kw>
-<status status="PASS" starttime="20210419 00:12:10.216" endtime="20210419 00:12:27.574" critical="yes"></status>
+<status status="PASS" starttime="20210419 19:43:06.680" endtime="20210419 19:43:54.698" critical="yes"></status>
 </test>
-<doc>Example Robot script to search google using Selenium automation
+<doc>Example Robot script to login to Facebook using Selenium automation
 with Keyword driven approach.</doc>
-<status status="PASS" starttime="20210419 00:12:09.887" endtime="20210419 00:12:27.575"></status>
+<status status="PASS" starttime="20210419 19:43:06.238" endtime="20210419 19:43:54.699"></status>
 </suite>
 <statistics>
 <total>
@@ -115,7 +172,7 @@ with Keyword driven approach.</doc>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Gsearch">Gsearch</stat>
+<stat pass="1" fail="0" id="s1" name="Fbsearch">Fbsearch</stat>
 </suite>
 </statistics>
 <errors>
