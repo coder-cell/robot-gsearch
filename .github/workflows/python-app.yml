@@ -27,3 +27,8 @@ jobs:
 
     - name: Run the Robot Script
       run: python main.py
+      
+    - name: Test Reports
+      uses: actions/upload-artifact@v2
+      with:
+          path: output\report.html
