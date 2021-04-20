@@ -31,4 +31,4 @@ jobs:
     - name: Test Reports
       uses: actions/upload-artifact@v2
       with:
-          path: output\report.html
+          path: output
