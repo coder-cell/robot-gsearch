@@ -2,7 +2,7 @@
 * Robot Framework Python automation for [**Google search**](https://www.google.com/).
 * Robot script for the login and search in [**Facebook**](https://www.facebook.com/).
 
-###***Appium Automation:***
+### ***Appium Automation:***
 #### Emulator Setup:
 *Steps Involved:*
 <br>
