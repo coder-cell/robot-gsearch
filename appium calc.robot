@@ -29,9 +29,5 @@ Test case name
     Click Element    id=com.google.android.calculator:id/digit_9
     # accessibility id=equals
     Click Element    id=com.google.android.calculator:id/eq
-
-#Test Teardown
-#    Quit Application
-#
-#Suite Teardown
-#    Close Application
+    # close the calculator appilcation.
+    Close Application
