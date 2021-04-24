@@ -21,5 +21,5 @@ def start_appium_server():
 
 # subprocess.call([r"D:\Projects\Python\Robot\robot-gsearch\bat\appium.cmd"])
 # robot.run("gsearch.robot", outputdir="output")
-robot.run("appium calc.robot", outputdir="output")
+robot.run("appium_emulator.robot", outputdir="output")
 # robot.run("fbsearch.robot", outputdir="output")
