@@ -18,9 +18,8 @@ ${ensureWebviewsHavePages}    True
 
 *** Test Cases ***
 Test case name
-#    Run Process     "C:/Program Files/Appium/Appium.exe"    -a 127.0.0.1 -p 4723 &
-#    Execute Manual Step     Its Paused
-    Open Application    ${REMOTE_URL}   deviceName=${deviceName}  platformName=${platformName}  appPackage=${appPackage}  appActivity=${appActivity}  noReset=${noReset}  ensureWebviewsHavePages=${ensureWebviewsHavePages}
+    Open Application    ${REMOTE_URL}   deviceName=${deviceName}  platformName=${platformName}
+    ...     appPackage=${appPackage}  appActivity=${appActivity}  noReset=${noReset}  ensureWebviewsHavePages=${ensureWebviewsHavePages}
     # id=com.google.android.calculator:id/digit_3
     Click Element    id=com.google.android.calculator:id/digit_3
     # accessibility id=plus
