@@ -1,3 +1,4 @@
 import robot
 
-robot.run("appium_realtime_mobile.robot", outputdir="output")
+status = robot.run("appium_realtime_mobile.robot", outputdir="output")
+exit(status)

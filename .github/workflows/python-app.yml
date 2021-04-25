@@ -29,6 +29,7 @@ jobs:
       run: python main.py
       
     - name: Test Reports
+      if: always()
       uses: actions/upload-artifact@v2
       with:
           path: ${{ github.workspace }}\output
