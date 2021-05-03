@@ -18,7 +18,9 @@ ${SRCH_BOX}     //*[@placeholder="Search Facebook"]
 Facebook Login & Search
     Open Browser for Search
     ${username} =   Get Value From User   Input email Id  default
+    Set Log Level    NONE
     ${password} =   Get Value From User   Input password  hidden=yes
+    Set Log Level    INFO
     Input Search    ${username}     ${password}
     Close Current Browser
 
@@ -34,7 +36,9 @@ Open Browser for Search
 Input Search
     [Arguments]      ${emailid}     ${password}
     Input Text      xpath=${LOG_EMAIL}     ${emailid}   clear=True
+    Set Log Level    NONE
     Input Text      xpath=${LOG_PASS}     ${password}   clear=True
+    Set Log Level    INFO
     Click Element   xpath=${LOG_BTN}
     Sleep   2
 

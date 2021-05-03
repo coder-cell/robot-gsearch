@@ -1,4 +1,4 @@
 import robot
 
-status = robot.run("scripts/appium_realtime_mobile.robot", outputdir="output")
+status = robot.run("scripts/fbsearch.robot", outputdir="output")
 exit(status)
