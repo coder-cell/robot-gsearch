@@ -1,11 +1,13 @@
 *** Settings ***
 Documentation    API Testing Robot files.
-Library     lib/api_request.py
-
+Variables   robot.yaml
+Library     lib.api_request
+Library     scripts/RetrieveInfo.py
 *** Test Cases ***
 Test URL
     ${status}   Get Status  url=https://www.google.com/
     Log     ${status}
-
+    ${status}   Get Data  url=https://www.google.com/
+    Log     ${status}
 
 *** Keywords ***
