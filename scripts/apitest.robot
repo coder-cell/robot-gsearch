@@ -2,7 +2,7 @@
 Documentation    API Testing Robot files.
 Variables   robot.yaml
 Library     lib.api_request
-Library     scripts/RetrieveInfo.py
+Library     scripts/retrieve_Info.py
 *** Test Cases ***
 Test URL
     ${status}   Get Status  url=https://www.google.com/
