@@ -6,12 +6,12 @@ Library     scripts/retrieve_Info.py
 
 *** Variables ***
 @{URLS}     https://www.google.com/    https://www.linkedin.com    https://slack.com/intl/en-in/
-
+&{dictURLs}     google=https://www.google.com/  linkedin=https://www.linkedin.com    slack=https://slack.com/intl/en-in/
 
 *** Test Cases ***
 Test Different URLS
     FOR   ${INDEX}    IN RANGE   1  11
-        FOR   ${url}   IN   @{URLS}
+        FOR   ${url}   IN   @{dictURLS.values()}
             ${status}   Run Keyword And Continue On Failure   Get Status  ${url}
             Log     ${status}
             ${status}   Run Keyword And Continue On Failure   Get Data  ${url}
