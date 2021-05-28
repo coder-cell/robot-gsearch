@@ -14,10 +14,20 @@ Library     Collections
 Test Different URLS
     FOR   ${INDEX}    IN RANGE   1  11
         FOR   ${url}   IN   @{dictURLS.values()}
-            ${status}   Run Keyword And Continue On Failure   Get Status  ${url}
+            ${status}   Run Keyword And Continue On Failure   Get API Status  ${url}
             Log     ${status}
-            ${status}    Repeat Keyword    5   Run Keyword And Continue On Failure   Get Data  ${url}
+            ${status}    Repeat Keyword    5    Get API Data    ${url}
             Log     ${status}
         END
     END
 *** Keywords ***
+Get API Data
+    [Arguments]      ${url}
+    ${status}   Run Keyword And Continue On Failure   Get Data  ${url}
+    [return]    ${status}
+
+Get API Status
+    [Arguments]     ${url}
+    ${status}   Run Keyword And Continue On Failure   Get Status  ${url}
+    Should be equal    ${status}    ${200}
+    [return]    ${status}
